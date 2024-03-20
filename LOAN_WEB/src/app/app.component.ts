@@ -8,6 +8,11 @@ import { NavigationEnd, Router } from '@angular/router';
 import { delay, filter } from 'rxjs/operators';
 // import { untilDestroyed } from '@ngneat/until-destroy';
 
+interface MenuItem {
+  name: string;
+  subMenuItems: { name: string, route: string }[];
+  subMenuVisible: boolean;
+}
 
 @Component({
   selector: 'app-root',
@@ -27,6 +32,17 @@ export class AppComponent {
     private router: Router,
    ) { }
 
+   menuItems = [
+    {
+      name: '>',
+      subMenuItems: [
+        { name: 'Pipeline-Main', route: '/submenu1' },
+        { name: 'My Assigned Files', route: '/submenu2' },
+        { name: 'Soft Credit Plus',route: '/submenu3' },
+      ],
+      subMenuVisible: false
+    },
+   ];
 
    ngAfterViewInit() {
     // this.observer
@@ -48,5 +64,9 @@ export class AppComponent {
     // this.router.events
     //   .pipe( untilDestroyed(this), filter((e) => e instanceof NavigationEnd) )
     //   .subscribe(() => { if (this.sidenav.mode === 'over') { this.sidenav.close(); } });
+  }
+
+  toggleSubMenu(menuItem: MenuItem): void {
+    menuItem.subMenuVisible = !menuItem.subMenuVisible;
   }
 }

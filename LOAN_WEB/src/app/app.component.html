@@ -3,7 +3,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" mode="side" opened="true">
 
-    <button mat-button style="color: white;" class="menu-button" routerLink="/dashboard/dashboard/view">
+    <button mat-button style="color: white;" class="menu-button" routerLink="/dashboard/view">
         <!-- <mat-icon>dashboard</mat-icon> -->
         <span >Dashboard</span>
     </button>
@@ -13,10 +13,34 @@
         <span>Create Loan</span>
     </button>
     
-    <button mat-button style="color: white;" class="menu-button" routerLink="">
-        <!-- <mat-icon>cloud</mat-icon> -->
-        <span>Pipeline</span>
-    </button>
+    <ul class="pipeline-menu">
+        <li *ngFor="let menuItem of menuItems">
+            
+                <button mat-button style="color: white;" (click)="toggleSubMenu(menuItem)" class="menu-button">
+                    <div style="display: flex;align-items: center;gap: 200px;">
+                        <h3 style="margin: 2px 10px 0 0px">Pipeline</h3>
+                        <span>{{ menuItem.name }}</span>
+                    </div>
+                </button>
+                
+                <!-- <button >
+                    
+                </button> -->
+            <!-- </div> -->
+            <ul *ngIf="menuItem.subMenuVisible" class="pipeline-submenu">
+                <h3>
+                    <li *ngFor="let subMenuItem of menuItem.subMenuItems">
+                        <a [routerLink]="subMenuItem.route" style="color: white; text-decoration: none;">{{ subMenuItem.name }}</a>
+                      </li>
+                </h3>
+            </ul>
+        </li>
+        <!-- <button mat-button style="color: white;" class="menu-button"> -->
+            <!-- <mat-icon>cloud</mat-icon> -->
+            <!-- <span>Pipeline</span> -->
+        <!-- </button> -->
+    </ul>
+    
     
     <button mat-button style="color: white;" class="menu-button" routerLink="">
         <!-- <mat-icon>diversity_2</mat-icon> -->
