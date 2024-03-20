@@ -22,7 +22,7 @@ interface MenuItem {
 
 
 export class AppComponent {
-  title = 'BlockCerts';
+  title = 'LoanBud';
 
 
   @ViewChild(MatSidenav)
@@ -36,7 +36,7 @@ export class AppComponent {
     {
       name: '>',
       subMenuItems: [
-        { name: 'Pipeline-Main', route: '/submenu1' },
+        { name: 'Pipeline - Main', route: '/submenu1' },
         { name: 'My Assigned Files', route: '/submenu2' },
         { name: 'Soft Credit Plus',route: '/submenu3' },
       ],
