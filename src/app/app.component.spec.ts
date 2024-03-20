@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'BlockCerts'`, () => {
+  it(`should have as title 'LOAN_WEB'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('BlockCerts');
+    expect(app.title).toEqual('LOAN_WEB');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('BlockCerts app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('LOAN_WEB app is running!');
   });
 });
