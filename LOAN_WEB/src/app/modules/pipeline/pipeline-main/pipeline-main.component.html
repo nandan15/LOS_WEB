@@ -1,1 +1,168 @@
-<p>pipeline-main works!</p>
+<!-- <p>pipeline-main works!</p> -->
+<div class="main" style="width: 100%;">
+    <div class="first" style="display: flex;flex-direction: row;gap: 38%;">
+
+        <div class="one">
+            <span style="font-weight: bold;">Client File Pipeline</span>
+        </div>
+        
+        <div class="two" style="display: flex;flex-direction: row;gap:5px;width: 50%;margin-left: 10%;">
+            <div>
+                <div style="width: 40px;border-radius: 5px;">
+                    <i class="material-icons" style="font-size: 20px;margin: 15px 5px 5px 10px;">info</i>
+                </div>
+            </div>
+            <div>
+                <button style="width: 180px;height: 50px;" mat-flat-button color="primary">Save Current Views</button>
+            </div>
+            <div>
+                <mat-form-field style="width: 180px;height: 70px;">
+                    <mat-label>Saved Views</mat-label>
+                    <mat-select>
+                    <!-- @for (food of foods; track food) {
+                        <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                    } -->
+                    <mat-option value="volvo">Volvo</mat-option>
+                    <mat-option value="saab">Saab</mat-option>
+                    <mat-option value="mercedes">Mercedes</mat-option>
+                    <mat-option value="audi">Audi</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <div style="width: 50px;background-color: lightskyblue;border-radius: 5px;">
+                    <button style="width: 100%;border-radius: 5px;"><i class="material-icons" style="font-size: 40px;">search</i></button>
+                </div>
+            </div>
+            <div>
+                <div style="width: 55px;background-color: lightskyblue;border-radius: 5px;">
+                    <button style="width: 100%;border-radius: 5px;"><i class="material-icons" style="font-size: 40px;">settings</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="color: silver;" />
+
+    <div class="second">
+        <div style="display: flex;flex-direction: row;width: 100%;gap: 5px;">
+            <div class="many"><button>Lead<span> ( )</span></button></div>
+            <div class="many"><button>Completed Application<span> ( )</span></button></div>
+            <div class="many"><button>Completed Initial Application<span> ( )</span></button></div>
+            <div class="many"><button>Requested Initial Documents<span> ( )</span></button></div>
+            <div class="many"><button>Pre-Qualification Rreview<span> ( )</span></button></div>
+        </div>
+        <br />
+        <div style="display: flex;flex-direction: row;width: 100%;gap: 5px;">
+            <div class="many"><button>Pending Documents for Underwriting<span> ( )</span></button></div>
+            <div class="many"><button>Docs are in - Waiting on Tax Transcripts<span> ( )</span></button></div>
+            <div class="many"><button>Submitted to Underwriting<span> ( )</span></button></div>
+        </div>
+        <br />
+        <div style="display: flex;flex-direction: row;width: 100%;gap: 5px;">
+            <div class="many"><button>UW Approved - Documents Needed for Closing<span> ( )</span></button></div>
+            <div class="many"><button>Approved<span> ( )</span></button></div>
+            <div class="many"><button>Funded<span> ( )</span></button></div>
+            <div class="many"><button>Tax Transcript Issues<span> ( )</span></button></div>
+            <div class="many"><button>On Hold<span> ( )</span></button></div>
+            <div class="many"><button>Withdrawn<span> ( )</span></button></div>
+            <div class="many"><button>Denied<span> ( )</span></button></div>
+        </div>
+        <br />
+        <div style="width: 100%;">
+            <div><button>All<span> ( )</span></button></div>
+        </div>
+    </div>
+    <div class="third">
+
+        <!-- Space for pagination -->
+
+        <!-- <div class="paginate">
+            <pagination [totalItems]="totalCount" [itemsPerPage]="showResultsCount"
+                [customPageTemplate]="pageTemplate" [maxSize]="1" [(ngModel)]="currentPage"
+                (pageChanged)="pageChanged($event)" [customPreviousTemplate]="prevTemplate"
+                [customNextTemplate]="nextTemplate" pageBtnClass="btn" class="my-pagination">
+            </pagination>
+            <ng-template #pageTemplate let-page let-disabled="disabled"
+                let-currentPage="currentPage" let-total="numPages">
+                Showing Page {{page.number}} of {{totalPageCount | number:'1.0-0'}}
+            </ng-template>
+            <ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
+                <ng-container>
+                    <img src="/assets/images/arrow.png" style="transform: rotate(90deg);">
+                </ng-container>
+            </ng-template>
+            <ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
+                <ng-container>
+                    <img src="/assets/images/arrow.png" style="transform: rotate(-90deg);">
+                </ng-container>
+            </ng-template>
+        </div> -->
+    </div>
+    <hr />
+    
+
+    <div class="table">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                #
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Action
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Name & Prop.Addr
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="entrydate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Entered Date
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.entrydate}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="lastaction">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Last Action
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastaction}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loanofficer">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Loan Officer
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.loanofficer}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Status
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="branch">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Branch
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.branch}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+  
+
+</div>

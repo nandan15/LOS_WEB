@@ -1,6 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
 mat-toolbar 
 {
-    background: #004a9f;
+    background: #03387517;
     color: white;
 }
 
@@ -9,7 +11,7 @@ mat-sidenav
     margin: 4px;
     width: 350px;
     border-right: none;
-    background: #002b5c;
+    background: #0f151bc5;
     color: white;
     border-radius: 5px;
     padding: 16px;  
@@ -23,7 +25,7 @@ mat-sidenav
     margin: 4px;
     margin-left: 12px;
     padding: 16px;
-    overflow: auto;
+    width: 80%;
 }
 
 mat-sidenav-container 
