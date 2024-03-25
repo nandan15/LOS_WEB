@@ -37,12 +37,37 @@
             <!-- <span>Pipeline</span> -->
         <!-- </button> -->
     </ul>
+
+    <ul class="usercontacts-menu">
+        <li *ngFor="let menuItem2 of menuItems2">
+                <button mat-button style="color: white;" (click)="toggleSubMenu(menuItem2)" class="menu-button">
+                    <div style="display: flex;align-items: center;gap: 147px;">
+                        User/Contacts
+                        <span>{{ menuItem2.name }}</span>
+                    </div>
+                </button>
+                
+                <!-- <button >
+                    
+                </button> -->
+            <!-- </div> -->
+            <ul *ngIf="menuItem2.subMenuVisible" class="usercontacts-submenu">
+                    <li *ngFor="let subMenuItem2 of menuItem2.subMenuItems">
+                        <a [routerLink]="subMenuItem2.route" style="color: white; text-decoration: none;">{{ subMenuItem2.name }}</a>
+                    </li>
+            </ul>
+        </li>
+        <!-- <button mat-button style="color: white;" class="menu-button"> -->
+            <!-- <mat-icon>cloud</mat-icon> -->
+            <!-- <span>Pipeline</span> -->
+        <!-- </button> -->
+    </ul>
     
     
-    <button mat-button style="color: white;" class="menu-button" routerLink="">
+    <!-- <button mat-button style="color: white;" class="menu-button" routerLink=""> -->
         <!-- <mat-icon>diversity_2</mat-icon> -->
-        <span>User / Contacts</span>
-    </button>
+        <!-- <span>User / Contacts</span>
+    </button> -->
     
     <button mat-button style="color: white;" class="menu-button" routerLink="">
         <!-- <mat-icon>calendar_month</mat-icon> -->

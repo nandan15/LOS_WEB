@@ -44,6 +44,21 @@ export class AppComponent {
     },
    ];
 
+   menuItems2 = [
+    {
+      name: '>',
+      subMenuItems: [
+        { name: 'Back Office', route: '/usercontacts/backoffice' },
+        { name: 'Branch', route: '/usercontacts/branch' },
+        { name: 'Broker', route: '/usercontacts/broker' },
+        { name: 'Loan Officer', route: '/usercontacts/loanofficer' },
+        { name: 'Contacts', route: '/usercontacts/contacts' },
+        { name: 'Borrowers', route: '/usercontacts/borrowers' },
+      ],
+      subMenuVisible: false
+    },
+   ];
+
    ngAfterViewInit() {
     // this.observer
     //   .observe(['(max-width: 800px)'])
